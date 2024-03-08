@@ -137,7 +137,7 @@ void loop()
 
 ### RESULTS
 
-Ultrasonic sensor is interfaced with digital output and error is identified to br 0.454 cms. 
+Ultrasonic sensor is interfaced with digital output and error is identified to be 0.454 cms. 
 
 
  
