@@ -1,5 +1,7 @@
-# EXPERIMENT-NO--05-Distance measurement using Ultrasonic sensor
-
+# EXPERIMENT-NO--04-Distance measurement using Ultrasonic sensor
+## Name: Prajin S
+## Register Number: 212223230151
+## Depratment : Artificial Intelligence and data Sceince
 ## AIM: 
 To interface an ultrasonic pair and measure the distance in centimeters , calculate the error
  
@@ -55,32 +57,78 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 
 ### PROGRAM 
-
-
-
-
+```
+int echopin=6;
+int trigpin=7;
+int red=9;
+int green=8;
+long duration;
+float distance;
+void setup()
+{
+  pinMode(echopin,INPUT);
+  pinMode(trigpin,OUTPUT);
+  pinMode(red,OUTPUT);
+  pinMode(green,OUTPUT);
+  Serial.begin(9600);
+}
+void loop()
+{
+  digitalWrite(trigpin,LOW);
+  delay(10);
+  digitalWrite(trigpin,HIGH);
+  delay(10);
+  digitalWrite(trigpin,LOW);
+  duration=pulseIn(echopin,HIGH);
+  distance=duration*.034/2;
+  Serial.print("Distance=");
+  Serial.print(distance);
+  Serial.println("cms");
+  if(distance>50)
+  {
+    digitalWrite(green,HIGH);
+    delay(500);
+    digitalWrite(green,LOW);
+    delay(500);
+  }
+  else
+  {
+    digitalWrite(red,HIGH);
+    delay(500);
+    digitalWrite(red,HIGH);
+    delay(500);
+  }
+}
+```
 
 
 ### Distance vs measurement table 
 
 			
- 
-			
-			
-			
-
-![image](https://user-images.githubusercontent.com/36288975/190135379-52ebacd5-ccd5-460f-a4cd-4d0ad1d9b179.png)
+ ![Screenshot 2024-03-08 160255](https://github.com/Prajin19/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/144979377/d47f60cf-3ac7-4540-a1a7-c7a935ecbcaa)
 
 			
 			
 			
 			
 			
-			Average error = sum/ number of readings 
- 
+			Average error = sum/ number of readings =0.454
 
 
+ #### Figure 02 - Distance vs Measurement Graph
+ ![Screenshot 2024-03-08 160852](https://github.com/Prajin19/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/144979377/1ebcab68-f2db-4d9c-9cd7-32fcb64fe180)
 
+
+### Simulation Output:
+#### Figure 02 - OFF Condition
+![Screenshot 2024-03-08 154339](https://github.com/Prajin19/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/144979377/a5f931c2-86ac-4117-830a-03eb0f50070a)
+#### Figure  03 - ON Condition (distance>50,green)
+![Screenshot 2024-03-08 154409](https://github.com/Prajin19/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/144979377/f93bd2b6-bd0e-4d0a-986e-911ae074d993)
+#### Figure 04 - ON Condition (distance<50,red)
+![Screenshot 2024-03-08 154317](https://github.com/Prajin19/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/144979377/9cc2f31e-ca37-4910-8532-03d687f8f4d3)
+
+### Scehmatic Simulation
+![Screenshot 2024-03-08 155104](https://github.com/Prajin19/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/144979377/ffa9f131-a1e3-4a6a-903a-d083d6d8055c)
 
 
 
